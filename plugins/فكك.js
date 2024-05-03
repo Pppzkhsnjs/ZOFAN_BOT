@@ -36,3 +36,4 @@ handler.tags = ['game'];
 handler.command = /^(فكك)$/i;
 
 export default handler;
+    
