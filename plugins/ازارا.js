@@ -90,6 +90,22 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 *🐦مدور*
 *🐦ستك*
 *🐦تعليق*'
+                                  id: 'te'
+                          }
+                        ]
+                      }
+                    ]
+                  }),
+                  messageParamsJson: ''
+                }
+              ]
+            }
+          }
+        }
+      }
+    }, {})
+
+                                  }
                             
                             
 handler.help = ['info']
