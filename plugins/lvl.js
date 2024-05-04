@@ -1,14 +1,49 @@
-const fetch = require('node-fetch')
-let handler = async (m, { text, usedPrefix, command }) => {
-if (!text) throw `*[❗] اهلا انا شات جي بي تي *\n\n*—◉ مثال على طلبات*\n*◉ ${usedPrefix + command} .بوت اعطني كود بايثون*\n*◉ ${usedPrefix + command} .بوت اعطني انمي*`
-try {
-//m.reply('*[❗] 𝙴𝚂𝙿𝙴𝚁𝙴 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙴𝙽 𝙻𝙾 𝚀𝚄𝙴 𝙼𝙰𝙽𝙳𝙾 𝙻𝙾 𝚀𝚄𝙴 𝙼𝙴 𝙿𝙸𝙳𝙸𝙾*')
-await conn.sendPresenceUpdate('composing', m.chat)
-let tiores = await fetch(`https://api.lolhuman.xyz/api/openai?apikey=${lolkeysapi}&text=${text}&user=user-unique-id`)
-let hasil = await tiores.json()
-m.reply(`${hasil.result}`.trim())
-} catch {
-throw `*[❗] خطأ لايوجد*`
-}}
-handler.command = ['openai', 'شات', 'ia', 'robot']
-module.exports = handler
+import { canLevelUp, xpRange } from '../lib/levelling.js'
+import { levelup } from '../lib/canvas.js'
+
+let handler = async (m, { conn }) => {
+	let name = conn.getName(m.sender)
+    let user = global.db.data.users[m.sender]
+    if (!canLevelUp(user.level, user.exp, global.multiplier)) {
+        let { min, xp, max } = xpRange(user.level, global.multiplier)
+        throw `
+╭━━━[ *المستوى* ]━━━━⬣
+❤️‍🔥 الاسم : *${name}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+*💎 الماسك :*${user.diamond}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+✔️  الدور : *${user.role}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+💫 المستوي : *${user.level}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+🪙 XP : *${user.exp - min}/${xp}*
+╰━━━〔 *🛡️ 1.4.9* 〕━━━━━⬣
+انت تحتاج الي *${max - user.exp}* *XP* لرفع مستواك
+`.trim()
+    }
+    let before = user.level * 1
+    while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
+    if (before !== user.level) {
+        let teks = `🎊 عاش يحب ${conn.getName(m.sender)}    المستوي:`
+        let str = `
+╭━━━[ *المستوى* ]━━━━⬣
+┃ ▢ المستوي السابق : *${before}*
+┃▢ المستوي الحالي : *${user.level}*
+╰━━━〔 *🛡️ 1.5.0* 〕━━━━━⬣
+*_كلما تفاعلت مع ساسكي البوت ارتفع مستواك_*
+`.trim()
+        try {
+            const img = await levelup(teks, user.level)
+            conn.sendFile(m.chat, img, '٠/levelup.jpg', str, m)
+        } catch (e) {
+            m.reply(str)
+        }
+    }
+}
+
+handler.help = ['levelup']
+handler.tags = ['xp']
+
+handler.command = ['لفل', 'lvl', 'levelup', 'مستواي', 'مستوا'] 
+
+export default handler
