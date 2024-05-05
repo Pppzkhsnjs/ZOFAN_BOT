@@ -1520,48 +1520,44 @@ let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'nu
         if (!msg) return 
 	if (!msg?.isGroup) return 
 	const antideleteMessage = `
-┏━━━━━━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━━━━━━
-*■ User:* @${participant.split`@`[0]}
-*■ Hour:* ${time}
-*■ Date:* ${date}
-*■ Sending the deleted message...* *■ To disable this feature, type the command:* *—◉ #disable antidelete*
-┗━━━━━━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━━━━━━`.trim();
-        await mconn.conn.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
-        mconn.conn.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+⧉ تم حذف رسالة
+┌─⊷  المحذوفة من قبل
+⟣ *الرقم:* @${participant.split`@`[0]}
+└─────────────
+
+*'ZOFAN-BOT | ZOFAN 3MK'*
+`.trim(), msg, {
+        mentions: [participant]
+            });
+      console.log(e, msg)
+      //this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
     } catch (e) {
         console.error(e)
     }
 }
+    }
+}
 
 global.dfail = (type, m, conn) => {
-  const msg = {
-    rowner: '*[ ℹ️ ] لا يمكن استخدام هذا الأمر إلا من قبل مالك الروبوت.*',
-    owner: '*[ ℹ️ ] لا يمكن استخدام هذا الأمر إلا من قبل مالك الروبوت.*',
-    mods: '*[ ℹ️ ] لا يمكن استخدام هذا الأمر إلا من قبل المشرفين ومالك الروبوت.*',
-    premium: '*[ ℹ️ ] لا يمكن استخدام هذا الأمر إلا من قبل المستخدمين المميزين ومالك الروبوت.*',
-    group: '*[ ℹ️ ] لا يمكن استخدام هذا الأمر إلا في المجموعات.*',
-    private: '*[ ℹ️ ] لا يمكن استخدام هذا الأمر إلا في الدردشة الخاصة للروبوت.*',
-    admin: '*[ ℹ️ ] لا يمكن استخدام هذا الأمر إلا من قبل مسؤولي المجموعة.*',
-    botAdmin: '*[ ℹ️ ] لاستخدام هذا الأمر، من الضروري أن يكون الروبوت مسؤولا عن المجموعة.*',
-    unreg: '*[ ℹ️ ] لاستخدام هذا الأمر، يجب أن تكون مسجلا.*\n\n*[ 💡 ] Use the command:* _#verify name.age_ *to register.*',
-    restrict: '*[ ℹ️ ] تم تعطيل هذا الأمر من قبل مالك الروبوت.*',
-  }[type];
-  const aa = {quoted: m, userJid: conn.user.jid};
-  const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: msg, contextInfo: {externalAdReply: {title: '*[ ⚠ ] Warning*', body: 'JOHAN-BOT', thumbnail: imagen1, sourceUrl: 'https://chat.whatsapp.com/CjPwuDRKkUBQut8Pfkla'}}}}, aa);
-  if (msg) return conn.relayMessage(m.chat, prep.message, {messageId: prep.key.id});
-};
 
-const file = global.__filename(import.meta.url, true);
+    let msg = {
+        rowner: '*فقط المالك* • يمكن استخدام هذا الأمر فقط من قبل *مالك البوت*',
+        owner: '*فقط المالك* • يمكن استخدام هذا الأمر فقط من قبل *مالك البوت*',
+        mods: '*فقط المشرفين* • هذه الوظيفة مخصصة فقط لـ *مشرفي البوت*',
+        premium: '*فقط للمشتركين المميزين* • يمكن استخدام هذا الأمر فقط من قبل *أعضاء مميزين*',
+        group: '*دردشة جماعية* • يمكن استخدام هذا الأمر فقط في المجموعات',
+        private: '*دردشة خاصة* • يمكن استخدام هذا الأمر فقط في *الدردشة الخاصة للبوت*',
+        admin: '*فقط المشرفين* • هذا الأمر مخصص فقط لـ *مشرفي المجموعة*',
+        botAdmin: '*فقط مشرف البوت* • يجب أن أكون *مشرفًا* لاستخدام هذا الأمر',
+        unreg: '*أنت غير مسجل بعد* • سجّل الدخول لاستخدام هذه الميزة عبر كتابة:\n\n*/تسجيل الاسم.العمر*\n\n📌مثال: */تسجيل داركو.20*',
+        restrict: '*القيود معطلة* • هذه الميزة *معطلة*',
+    }[type]
+    if (msg) return m.reply(msg)
+}
+
+let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
-  unwatchFile(file);
-  console.log(chalk.redBright('Update \'handler.js\''));
-  if (global.reloadHandler) console.log(await global.reloadHandler());
-  
-  if (global.conns && global.conns.length > 0 ) {
-    const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
-    for (const userr of users) {
-      userr.subreloadHandler(false)
-    }
-  }
-  
-});
+    unwatchFile(file)
+    console.log(chalk.redBright("Update 'handler.js'"))
+    if (global.reloadHandler) console.log(await global.reloadHandler())
+})
