@@ -31,8 +31,8 @@ m.reply('Conversion to sticker error, send as image instead')
 await conn.sendFile(m.chat, apiUrl, 'smaker.png', null, m)
 }}
 handler.help = ['smaker']
-handler.tags = ['sticker']
-handler.command = ['stickmaker', 'stickermaker', 'smaker'] 
+handler.tags = ['ملصق']
+handler.command = ['ملصق', 's', 'stiker'] 
 handler.diamond = false
 
 export default handler
