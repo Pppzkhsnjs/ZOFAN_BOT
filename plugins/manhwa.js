@@ -1,3 +1,7 @@
+//هديه وصول القناه 100 عضو بنحبكم 
+//تابع القناه https://whatsapp.com/channel/0029VaUTbPnBKfhygQtsJh35
+//تغير الحقوق رقاصه 
+
 import fetch from 'node-fetch';
 
 
