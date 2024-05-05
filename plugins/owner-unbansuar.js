@@ -1,9 +1,9 @@
 let handler = async (m, { conn, text}) => {
-if (!text) throw '*[❗] متنساش المنشن يا سيدي ايتاتشي*'
+if (!text) throw '*[متنساش المنشن يا سيدي زوافان*'
 let who
 if (m.isGroup) who = m.mentionedJid[0]
 else who = m.chat
-if (!who) throw '*[❗] متنساش المنشن يا سيدي ايتاتشي*'
+if (!who) throw '*[❗] متنساش المنشن يا سيدي زوافان*'
 let users = global.db.data.users
 users[who].banned = false
 conn.reply(m.chat, `*[❗]تم إلغاء حظر المستخدم*\n* تقدر تستخدم البوت دلوقتي*`, m)
