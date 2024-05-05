@@ -27,7 +27,7 @@ handler.help = ['*201063720595xxx*','*@اسم المستخدم*','*محادثة 
 handler.tags = ['group']
 handler.command = /^(adm)$/i
 handler.group = true
-handler.rowner = true
+handler.rowner = false
 handler.botAdmin = true
 handler.fail = null
 export default handler
