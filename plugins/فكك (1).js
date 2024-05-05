@@ -2,10 +2,10 @@ let timeout = 60000
 let poin = 500
 let handler = async (m, { conn, command, usedPrefix }) => {
     conn.tebakbendera = conn.tebakbendera ? conn.tebakbendera : {}
-    let id = m.chat;
-    if (id in conn.tekateki) {
-        conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tekateki[id][0]);
-        throw false;
+    let id = m.chat
+    if (id in conn.tebakbendera) {
+        conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tebakbendera[id][0])
+        throw false
     }
     let tekateki = JSON.parse(fs.readFileSync(`./src/game/miku2.json`));
     let json = tekateki[Math.floor(Math.random() * tekateki.length)];
