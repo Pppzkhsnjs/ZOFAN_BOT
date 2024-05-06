@@ -12,6 +12,9 @@ let character = src.top[Math.floor(Math.random() * src.top.length)]
 throw false
     }
     let src = await (await fetch('https://api.jikan.moe/v3/top/characters/1')).json()
+   if (!src.top || !src.top.length) {
+    throw new Error("لا يوجد بيانات")
+   }
     let character = src.top[Math.floor(Math.random() * src.top.length)]
     let caption = `*${command.toUpperCase()}*
   ❐↞┇الـوقـت⏳↞ *${(timeout / 1000).toFixed(2)} ┇
