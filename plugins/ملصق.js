@@ -31,7 +31,7 @@ stiker = await sticker(false, out, global.packname, global.author)
 if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author)
 
 else return m.reply('*عنوان URL / الرابط غير صالح ، يجب أن يكون إنهاء الرابط / URL / الرابط هو ‏jpg ، على سبيل المثال .ملصق https://telegra.ph/file/5f6d20951b3930d99b306.jpg*')
-
+  
 }
 } catch (e) {
 console.error(e)
@@ -44,8 +44,9 @@ else throw '*خطأ ، يرجى المحاولة مرة أخرى. لا تنسي 
 }}
 handler.help = ['stiker (caption|reply media)', 'stiker <url>', 'stikergif (caption|reply media)', 'stikergif <url>']
 handler.tags = ['sticker']
-handler.command = /^ستك|ملصق?$/i
+handler.command = /^مل(ص?ق)?(gif)?(wm)?$/i
 export default handler
 
 const isUrl = (text) => {
 return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png)/, 'gi'))}
+                                           
