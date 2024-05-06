@@ -5,7 +5,11 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     let id = m.chat
     if (id in conn.fakk) {
         conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.fakk[id][0])
-        throw false
+          if (!src.top || !src.top.length) {
+    throw new Error("لا يوجد بيانات")
+}
+let character = src.top[Math.floor(Math.random() * src.top.length)]
+throw false
     }
     let src = await (await fetch('https://api.jikan.moe/v3/top/characters/1')).json()
     let character = src.top[Math.floor(Math.random() * src.top.length)]
