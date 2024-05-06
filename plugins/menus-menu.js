@@ -1,6 +1,6 @@
 let handler = async (m, { conn }) => {
     const name = conn.getName(m.sender);
-    let videoUrl = 'https://telegra.ph/file/c917a61fbb5ea7e93c6c1.mp4';
+    let videoUrl = 'https://telegra.ph/file/85bb3e15c28b7f2e2a9d8.mp4';
     let tagUser = '@' + m.sender.split("@s.whatsapp.net")[0];
     let more = String.fromCharCode(8206);
     let teks = `${pickRandom([`
@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
 ┃ *↵ اهلا يا روحي "${name}" معاك بوت اسمي زوافان "*
 ╰━━━〔 *🛡️ 1.4.9* 〕━━━━━⬣
 ╭━━━[ *المعلومات الخاصه ب المطور و البوت* ]━━━━⬣
-┇اسم البوت🤖: *كانيكي 
+┇اسم البوت🤖: *ايس 
 ┇اسم المالك👑: *زوافان*
 ┇المنصه📡: *ريبلايت*
 ╰━━━〔 *🛡️ 1.4.9* 〕━━━━━⬣
