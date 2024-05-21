@@ -2,7 +2,7 @@ import axios from 'axios'
 let handler = async(m, { conn, usedPrefix, command }) => {
 let res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/Messi.json`)).data  
 let url = await res[Math.floor(res.length * Math.random())]
-conn.sendFile(m.chat, url, 'error.jpg', `*المعزه بس كريستيانو عمه 01114329294*`, m)}
+conn.sendFile(m.chat, url, 'error.jpg', '*زوافان مايحب ميسي*`, m)}
 //conn.sendButton(m.chat, "*Messi*", author, url, [['⚽ SIGUIENTE ⚽', `${usedPrefix + command}`]], m)}
 handler.help = ['مسي', 'ميسي']
 handler.tags = ['internet']
