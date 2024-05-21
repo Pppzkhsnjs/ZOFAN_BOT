@@ -18,15 +18,15 @@ coding by BK9 <3 for free, Enjoy.
 import fetch from 'node-fetch';
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    throw `قم بكتابة سؤالك\n\nمثال . . زوافان كيف حالك`;
+    throw `قم بكتابة سؤالك\n\nمثال . .جرجيرر كيف حالك`;
   }
   try {
     conn.sendPresenceUpdate('composing', m.chat);
     const BK9api = `https://api.bk9.site/ai/chatgpt?q=${encodeURIComponent(text)}`;
-    const BK99 = await fetch(ZF);
-    const BK8 = await ZF.json();
-    if (ZF.status && .ZF) {
-      const respuestaAPI = ZF.ZF;
+    const BK99 = await fetch(BK9api);
+    const BK8 = await BK99.json();
+    if (BK8.status && BK8.BK9) {
+      const respuestaAPI = BK8.BK9;
       conn.reply(m.chat, respuestaAPI, m);
     } else {
       throw "حدث خطأ أثناء معالجة طلبك.";
@@ -36,7 +36,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 };
 
-handler.command = /^(زوافان)$/i;
+handler.command = /^(جرجيرر)$/i;
 handler.tags = ['ai'];
 
 export default handler;
@@ -50,8 +50,8 @@ import uploader from '../lib/uploadImage.js'
 
 var handler = async (m, { conn, text, command, usedPrefix }) => {
 let BK7 = m.quoted ? m.quoted : m
-let BK8 = (zf.msg || ZF).mimetype || BK7.mediaType || ''
-if (/image/g.test(ZF) && !/webp/g.test(BK8)) {
+let BK8 = (BK7.msg || BK7).mimetype || BK7.mediaType || ''
+if (/image/g.test(BK8) && !/webp/g.test(BK8)) {
 let BK0 = await BK7.download()
 
 let BK9img = await (uploader)(BK0)
@@ -60,7 +60,7 @@ conn.sendMessage(m.chat, { text: BK9api.BK9 }, { quoted: m })
 } else throw `قم بالرد على صورة واكتب سؤالك\n\nمثال : .جرجير من هذا ( لا تنسى ترد على صورة )`
 }
 handler.tags = ['ai']
-handler.command = /^(زوافان)$/i;
+handler.command = /^(جرجير)$/i;
 
 handler.limit = true
 
@@ -101,15 +101,51 @@ const handler = async (m, { conn, text, command, usedPrefix }) => {
     }
 };
 
-handler.help = ['زوافان'];
+handler.help = ['جرجير'];
 handler.tags = ['ai'];
-handler.command = /^(zf)$/i;
+handler.command = /^(bk9)$/i;
 
 export default handler;
 
 //=============================================================>
 
+//Shortner link:
 
+import fetch from 'node-fetch'; 
+
+let handler = async function (m, { text }) {
+  try {
+    if (!text) {
+      m.reply(`لو تبغاه بدون تخصيص سوي : 
+. اختصار وحط رابط
+مثال : 
+.اختصار https://bk9.site/ 
+لو تبغاه بتخصيص سوي : 
+.اختصار حط رابط + كلمة
+مثال : 
+.اختصار https://bk9.site/ + قروب_الملصقات`);
+      return;
+    }
+    const [link, alias] = text.split("+").map(part => part.trim());
+    let apiUrl = `https://bk9.site/api/create?url=${encodeURIComponent(link)}`;
+    if (alias) apiUrl += `&alias=${encodeURIComponent(alias)}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if (data.BK99) {
+      return m.reply("هذا التخصيص مأخوذ، جرب اخر.");
+    }
+    const shortURL = data.BK9;
+    return m.reply(`֎╎تـم  اخـتـصـار  رابـطـك ${alias ? ' مع التخصيص ب "' + alias + '"' : ''}:\n\n${shortURL}`);
+  } catch (error) {
+    console.error(error);
+    return m.reply('خطأ');
+  }
+};
+
+handler.command = ['اختصار'];
+handler.tags = ['اختصار'];
+export default handler;
 
 //=============================================================>
 
@@ -126,7 +162,7 @@ const handler = async (m, { conn }) => {
 };
 
 handler.tags = ['islam'];
-handler.command = /^(دين)$/i;
+handler.command = /^(فدين)$/i;
 
 export default handler;
 
