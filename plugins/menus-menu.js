@@ -35,7 +35,7 @@ let more = String.fromCharCode(8206)
 let readMore = more.repeat(900) 
   const taguser = '@' +  m.sender.split('@s.whatsapp.net')[0];
 let str = `*
-                                                           *┨══┅══┉▕🌀▏┉══┅══┠*
+           *┨══┅══┉▕🌀▏┉══┅══┠*
 ┃ *↵ اهلا يا بك "امبرطور شرالشيطاني زوافان" في بوت  زوافان "*
                                                               *┨══┅══┉▕معلوماتي▏┉══┅══┠*
 ┇اسم البوت🤖: *ايس 
@@ -166,7 +166,7 @@ let str = `*
 
 ~⌬ تــ✍︎ــوقــيــعي
 * 𝑍𝑂𝐹𝐴𝑁 𝐵𝑂𝑇 *
-.trim();
+‬`.trim();
 
 
 
@@ -179,3 +179,28 @@ conn.sendMessage(m.chat, {
 handler.help = ['main']
 handler.tags = ['group']
 handler.command = ['اوامر'] 
+
+export default handler
+function clockString(ms) {
+    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+
+    function ucapan() {
+      const time = moment.tz('Egypt').format('HH')
+      let res = "بداية يوم سعيده ☀️"
+      if (time >= 4) {
+        res = "صباح الخير 🌄"
+      }
+      if (time >= 10) {
+        res = "مساء الخير ☀️"
+      }
+      if (time >= 15) {
+        res = "مساء الخير 🌇"
+      }
+      if (time >= 18) {
+        res = "مساء الخير 🌙"
+      }
+      return res
+    }
