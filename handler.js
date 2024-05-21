@@ -480,7 +480,7 @@ export async function handler(chatUpdate) {
         if (!isNumber(user.upgrader)) user.upgrader = 0;
         if (!isNumber(user.vodka)) user.vodka = 0;
         if (!isNumber(user.wallet)) user.wallet = 0;
-        if (!isNumber(user.warn)) user.warn = 0;
+        if (!isNumber(user.warn)) user.warn = true;
         if (!isNumber(user.weapon)) user.weapon = 0;
         if (!isNumber(user.weapondurability)) user.weapondurability = 0;
         if (!isNumber(user.wolf)) user.wolf = 0;
@@ -889,7 +889,7 @@ export async function handler(chatUpdate) {
           upgrader: 0,
           vodka: 0,
           wallet: 0,
-          warn: 0,
+          warn: true,
           weapon: 0,
           weapondurability: 0,
           wolf: 0,
