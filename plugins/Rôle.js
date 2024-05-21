@@ -11,8 +11,9 @@ handler.before = function (m) {
       : ((user.level >= 18) && (user.level <= 130)) ? 'عودة الى اصل'
       : ((user.level >= 21) && (user.level <= 150)) ? ' طبقة الملك'
       : ((user.level >= 24) && (user.level <= 180)) ? ' طبقة امبرطور'
-      : ((user.level >= 27) && (user.level <= 200)) ? ' طبقة الشيطان المحلق'
-      
+      :((user.level >= 27) && (user.level <= 200)) ? ' طبقة الشيطان المحلق'
+      : 'Dragón rey estrella'
+
 
     user.role = role
     return true
