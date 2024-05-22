@@ -1506,6 +1506,9 @@ export async function callUpdate(callUpdate) {
     }
   }
 }
+m.reply(`*🗂️ الملحق:* ${m.plugin}\n*👤 المرسل:* ${m.sender}\n*💬 الدردشة:* ${m.chat}\n*💻 الأمر:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *سجل الأخطاء:*\n\n\`\`\`${text}\`\`\``.trim(), data.jid)
+                            }
+                        m.reply(text)
 
 export async function deleteUpdate(message) {
 let d = new Date(new Date + 3600000)
