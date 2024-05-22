@@ -480,7 +480,7 @@ export async function handler(chatUpdate) {
         if (!isNumber(user.upgrader)) user.upgrader = 0;
         if (!isNumber(user.vodka)) user.vodka = 0;
         if (!isNumber(user.wallet)) user.wallet = 0;
-        if (!isNumber(user.warn)) user.warn = true;
+        if (!isNumber(user.warn)) user.warn = 3;
         if (!isNumber(user.weapon)) user.weapon = 0;
         if (!isNumber(user.weapondurability)) user.weapondurability = 0;
         if (!isNumber(user.wolf)) user.wolf = 0;
@@ -490,7 +490,7 @@ export async function handler(chatUpdate) {
         if (!isNumber(user.wortel)) user.wortel = 0;
         if (!user.lbars) user.lbars = '[▒▒▒▒▒▒▒▒▒]';
         if (!user.job) user.job = 'Desempleo';
-        if (!user.premium) user.premium = false;
+        if (!user.premium) user.premium = true;
         if (!user.premium) user.premiumTime = 0;
         if (!user.wait) user.wait = 0;
         if (!user.rtrofi) user.rtrofi = 'Bronce';
@@ -889,7 +889,7 @@ export async function handler(chatUpdate) {
           upgrader: 0,
           vodka: 0,
           wallet: 0,
-          warn: true,
+          warn: 3,
           weapon: 0,
           weapondurability: 0,
           wolf: 0,
@@ -1506,9 +1506,6 @@ export async function callUpdate(callUpdate) {
     }
   }
 }
-m.reply(`*🗂️ الملحق:* ${m.plugin}\n*👤 المرسل:* ${m.sender}\n*💬 الدردشة:* ${m.chat}\n*💻 الأمر:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *سجل الأخطاء:*\n\n\`\`\`${text}\`\`\``.trim(), data.jid)
-                            }
-                        m.reply(text)
 
 export async function deleteUpdate(message) {
 let d = new Date(new Date + 3600000)
