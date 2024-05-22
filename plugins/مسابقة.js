@@ -150,6 +150,6 @@ handler.before = async function (m, { conn }) {
         }
     }
 };
-handler.command = /^(مسابقه|انضم|حذف-صور)$/i;
+handler.command = /^(مسابقه-صور|انضم-صور|حذف-صور)$/i;
 
 export default handler;
