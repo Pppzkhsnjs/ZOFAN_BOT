@@ -23,7 +23,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
               buttons: [
                 {
                   name: 'single_select',
-                  buttonParamsJson: JSON.stringify({
+                  buttonParamsJson: JSON.stringify({let tekateki = JSON.parse(fs.readFileSync(`./src/game/العاب.json`))
                     title: 'دوس عليا 💔',
                     sections: [
                       {
