@@ -8,7 +8,7 @@ let done = '♥️';
     let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
     let message =  'عمك';
 
-    conn.sendFile(m.chat, 'تحط  هنا تليجرام', 'https://telegra.ph/file/f2ba599c3230fdb1e8dad.mp4', message, m);
+    conn.sendFile(m.chat, 'تحط  هنا تليجرام', '', message, m);
 };
 
 handler.customPrefix = /^(زوافان)$/i;
