@@ -8,10 +8,10 @@ let done = '♥️';
     let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
     let message =  'عمك';
 
-    conn.sendFile(m.chat, 'تحط  هنا تليجرام', '', message, m);
+    conn.sendFile(m.chat, 'تحط  هنا تليجرام', 'image.jpg', message, m);
 };
 
-handler.customPrefix = /^(زوافان)$/i;
+handler.customPrefix = /^(شينسوي|زوافان|كرولو|ريكي)$/i;
 handler.command = new RegExp;
 
 export default handler;
