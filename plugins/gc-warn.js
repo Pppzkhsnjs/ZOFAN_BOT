@@ -1,1 +1,56 @@
-const _0x5e869d=_0x5e11;function _0x5380(){const _0x448936=['3483100OQFPql','users','tags','mentionedJid','♻️\x20لقد\x20تمت\x20إزالتك\x20من\x20المجموعة\x20*','reply','groupParticipantsUpdate','\x0a⚠️\x20*انذار*\x20⚠️\x0aلقد\x20تلقيت\x20انذار\x20من\x20أحد\x20المشرفين\x0a\x0a⟣\x20*الانذارات:*\x20','botAdmin','8fjKXyc','✳️\x20لم\x20يتم\x20العثور\x20على\x20المستخدم\x20في\x20قاعدة\x20بياناتي','✳️\x20قم\x20بعمل\x20تاغ\x20للشخص\x20المراد\x20تحذيره\x0a\x0a📌\x20مثال:\x20','10acSsob','*\x20انذارات','maxwarn','448920dCGbBU','218876PfNZJD','1393539ZjpMHT','9JvQvWn','warn\x20@user','warn','تحذير','\x0a⟣\x20*السبب:*\x20','quoted','200292VGZvcR','\x20\x0aإذا\x20تلقيت\x20*','command','group','isGroup','161084ASHESl','split','admin','\x0a⚠️\x20*انذار\x20للمستخدم*\x20⚠️\x0a\x0a⟣\x20*المشرف:*\x20','remove','⛔\x20تجاوز\x20المستخدم\x20عدد\x20الانذارات\x20المسموح\x20بها\x20*','\x0a⟣\x20*المستخدم:*\x20@','sender','getName','chat','data','374520SafGgZ','help'];_0x5380=function(){return _0x448936;};return _0x5380();}(function(_0x473e71,_0x7cf28c){const _0xc65443=_0x5e11,_0x782335=_0x473e71();while(!![]){try{const _0x70809d=-parseInt(_0xc65443(0x16b))/0x1+parseInt(_0xc65443(0x183))/0x2+-parseInt(_0xc65443(0x16d))/0x3*(parseInt(_0xc65443(0x178))/0x4)+parseInt(_0xc65443(0x167))/0x5*(parseInt(_0xc65443(0x173))/0x6)+parseInt(_0xc65443(0x16c))/0x7*(-parseInt(_0xc65443(0x164))/0x8)+parseInt(_0xc65443(0x16a))/0x9+parseInt(_0xc65443(0x15b))/0xa;if(_0x70809d===_0x7cf28c)break;else _0x782335['push'](_0x782335['shift']());}catch(_0x20872a){_0x782335['push'](_0x782335['shift']());}}}(_0x5380,0x1bb28));let war=global[_0x5e869d(0x169)],handler=async(_0xc6032f,{conn:_0x3c3bb5,text:_0x24840d,args:_0x26d047,groupMetadata:_0x292e62,usedPrefix:_0x3eaa95,command:_0x5cebe7})=>{const _0x207535=_0x5e869d;let _0x1a0d6f;if(_0xc6032f[_0x207535(0x177)])_0x1a0d6f=_0xc6032f[_0x207535(0x15e)][0x0]?_0xc6032f[_0x207535(0x15e)][0x0]:_0xc6032f[_0x207535(0x172)]?_0xc6032f[_0x207535(0x172)][_0x207535(0x17f)]:![];else _0x1a0d6f=_0xc6032f[_0x207535(0x181)];if(!_0x1a0d6f)throw _0x207535(0x166)+(_0x3eaa95+_0x5cebe7)+'\x20@user';if(!(_0x1a0d6f in global['db'][_0x207535(0x182)]['users']))throw _0x207535(0x165);let _0x2f1417=_0x3c3bb5[_0x207535(0x180)](_0xc6032f[_0x207535(0x17f)]),_0x361d2f=global['db'][_0x207535(0x182)][_0x207535(0x15c)][_0x1a0d6f][_0x207535(0x16f)];if(_0x361d2f<war)global['db']['data'][_0x207535(0x15c)][_0x1a0d6f][_0x207535(0x16f)]+=0x1,_0xc6032f['reply'](_0x207535(0x17b)+_0x2f1417+_0x207535(0x17e)+_0x1a0d6f[_0x207535(0x179)]`@`[0x0]+'\x0a⟣\x20*الانذارات:*\x20'+(_0x361d2f+0x1)+'/'+war+_0x207535(0x171)+_0x24840d,null,{'mentions':[_0x1a0d6f]}),_0xc6032f[_0x207535(0x160)](_0x207535(0x162)+(_0x361d2f+0x1)+'/'+war+_0x207535(0x174)+war+'*\x20انذارات\x20سيتم\x20طردك\x20تلقائيًا\x20من\x20المجموعة',_0x1a0d6f);else _0x361d2f==war&&(global['db'][_0x207535(0x182)]['users'][_0x1a0d6f][_0x207535(0x16f)]=0x0,_0xc6032f[_0x207535(0x160)](_0x207535(0x17d)+war+'*،\x20سيتم\x20طرده'),await time(0xbb8),await _0x3c3bb5[_0x207535(0x161)](_0xc6032f[_0x207535(0x181)],[_0x1a0d6f],_0x207535(0x17c)),_0xc6032f['reply'](_0x207535(0x15f)+_0x292e62['subject']+'*\x20بسبب\x20تلقيك\x20*'+war+_0x207535(0x168),_0x1a0d6f));};handler[_0x5e869d(0x15a)]=[_0x5e869d(0x16e)],handler[_0x5e869d(0x15d)]=[_0x5e869d(0x176)],handler[_0x5e869d(0x175)]=[_0x5e869d(0x16f),'انذار',_0x5e869d(0x170)],handler[_0x5e869d(0x176)]=!![],handler[_0x5e869d(0x17a)]=!![],handler[_0x5e869d(0x163)]=!![];function _0x5e11(_0x20940d,_0x302132){const _0x5380e8=_0x5380();return _0x5e11=function(_0x5e11b5,_0x391e07){_0x5e11b5=_0x5e11b5-0x15a;let _0x29ab37=_0x5380e8[_0x5e11b5];return _0x29ab37;},_0x5e11(_0x20940d,_0x302132);}export default handler;const time=async _0x1abdfd=>{return new Promise(_0x5cedb4=>setTimeout(_0x5cedb4,_0x1abdfd));};
+const handler = async (m, {conn, text, command, usedPrefix}) => {
+  if (m.mentionedJid.includes(conn.user.jid)) return;
+  const pp = './src/warn.jpg';
+  let who;
+  if (m.isGroup) {
+    who = m.mentionedJid[0] ?
+      m.mentionedJid[0] :
+      m.quoted ?
+      m.quoted.sender :
+      text;
+  } else who = m.chat;
+  const user = global.db.data.users[who];
+  const bot = global.db.data.settings[conn.user.jid] || {};
+  const dReason = 'بدون سبب';
+  const msgtext = text || dReason;
+  const sdms = msgtext.replace(/@\d+-?\d* /g, '');
+  const warntext = `*[❗] قم بالرد علي الرساله او منشن المستخدم *\n\n*—◉ مثال:*\n*${
+    usedPrefix + command
+  } @${global.suittag}*`;
+  if (!who) {
+    throw m.reply(warntext, m.chat, {mentions: conn.parseMention(warntext)});
+  }
+  user.warn += 1;
+  await m.reply(
+      `${
+      user.warn == 1 ? `*@${who.split`@`[0]}*` : `*@${who.split`@`[0]}*`
+      }تلقي تحذيرا في هذه المجموعه!\n السبب: ${sdms}\n*التحزيرات ${
+        user.warn
+      }/3*`,
+      null,
+      {mentions: [who]},
+  );
+  if (user.warn >= 3) {
+    if (!bot.restrict) {
+      return m.reply(
+          '*[❗تحذير❗] مطور البوت لم يقم بتفعيله كلمه عشان يفهلها*',
+      );
+    }
+    user.warn = 0;
+    await m.reply(
+        `انا حذرتك عده مرات!!\n*@${
+          who.split`@`[0]
+        }*انت تجاوزت 3 تحذيرات*, الان سيتم طردك يا حب/اا `,
+        null,
+        {mentions: [who]},
+    );
+    await conn.groupParticipantsUpdate(m.chat, [who], 'ازاله');
+  }
+  return !1;
+};
+
+handler.command = /^(advertir|advertencia|warn|تحزير)$/i;
+handler.group = true;
+handler.admin = true;
+handler.botAdmin = true;
+export default handler;
