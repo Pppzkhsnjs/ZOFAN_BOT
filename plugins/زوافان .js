@@ -1,23 +1,17 @@
-let handler = m => m; 
+// كود تم نشره بواسطه obito
+// تابع لقناه https://whatsapp.com/channel/0029VaSQX1TI1rcbxtQZ5518
+let handler = async (m, { conn }) => {
+let done = '♥️'; 
+       m.react(done);
+    let user = global.db.data.users[m.sender];
+    let name = conn.getName(m.sender);
+    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
+    let message =  'عمك';
 
- handler.all = async function (m) { 
- let chat = global.db.data.chats[m.chat]; 
- let responses; 
- if (/^زوافان|زوفان$/i.test(m.text)) { 
- responses = [ 
- 
-'عمك'
+    conn.sendFile(m.chat, 'تحط  هنا تليجرام', 'https://telegra.ph/file/f2ba599c3230fdb1e8dad.mp4', message, m);
+};
 
-'بحبو'
+handler.customPrefix = /^(زوافان)$/i;
+handler.command = new RegExp;
 
-'نعم'
-    ];
- }  
- if (responses) { 
- let randomIndex = Math.floor(Math.random() * responses.length); 
- conn.reply(m.chat, responses[randomIndex], m); 
- } 
- return !0 
- }; 
-
- export default handler;
+export default handler;
