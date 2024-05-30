@@ -1,31 +1,33 @@
-import similarity from 'similarity'
-const threshold = 0.72
-export async function before(m) {
+//قناه بورش
+//https://whatsapp.com/channel/0029VaQ12JyLY6d1PdN5r93a
+let timeout = 30000
+let poin = 3999
+let handler = async (m, { conn, command, usedPrefix }) => {
+    conn.tokitoki = conn.tokitoki ? conn.tokitoki : {}
     let id = m.chat
-    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.text || !/استخدم.*انسحب/i.test(m.quoted.text) || /.*hhint/i.test(m.text))
-        return !0
-    this.tebakbendera = this.tebakbendera ? this.tebakbendera : {}
-    if (!(id in this.tebakbendera))
-        return this.reply(m.chat, '*لقد انتهي هذا السؤال اكتب علم لتظهر أسأله جديده*', m)
-    if (m.quoted.id == this.tebakbendera[id][0].id) {
-        let isSurrender = /^(انسحب|surr?ender)$/i.test(m.text)
-        if (isSurrender) {
-            clearTimeout(this.tebakbendera[id][3])
-            delete this.tebakbendera[id]
-            return this.reply(m.chat, '*طلع فاشل و استسلم :( !*', m)
-        }
-        let json = JSON.parse(JSON.stringify(this.tebakbendera[id][1]))
-
-        if (m.text.toLowerCase() == json.name.toLowerCase().trim()) {
-            global.db.data.users[m.sender].exp += this.tebakbendera[id][2]
-            this.reply(m.chat, `*❐┃اجـابـة صـحـيـحـة┃✅ ❯*\n\n*❐↞┇الـجـائـزة💰↞${this.tebakbendera[id][2]} نقطه*`, m)
-            clearTimeout(this.tebakbendera[id][3])
-            delete this.tebakbendera[id]
-        } else if (similarity(m.text.toLowerCase(), json.name.toLowerCase().trim()) >= threshold)
-            m.reply(`*لقد كنت علي وشك النجاح*!`)
-        else
-            this.reply(m.chat, `❐┃اجـابـة خـاطـئـة┃❌ ❯`, m)
+    if (id in conn.tokitoki) {
+        conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tokitoki[id][0])
+        throw false
     }
-    return !0
+    let src = await (await fetch('https://raw.githubusercontent.com/ze819/game/master/src/game.js/luffy1.json')).json()
+  let json = src[Math.floor(Math.random() * src.length)]
+    let caption = `*❰❖── ~『ZOFAN-𝐵𝛩𝑇』~──❖❱*\n *•┇❖↞استخدم انسحب للانسحاب┇🇸🇦❯*
+ *•┃❖↞الـوقـت⏳↞* *${(timeout / 1000).toFixed(2)}* *ثانية┇❯*
+  
+ *•┃❖↞الـجـائـزة💰↞* *${poin}* *نقطه┇❯*
+   *❰❖── ~『ZOFAN-𝐵𝛩𝑇』~──❖❱*
+     `.trim()
+    conn.tokitoki[id] = [
+        await conn.sendFile(m.chat, json.img, '', caption, m),
+        json, poin,
+        setTimeout(() => {
+            if (conn.tokitoki[id]) conn.reply(m.chat, `*❮ ⌛┇انتــهــى الــوقــت┇⌛❯*\n*❖↞┇الاجـابـة✅↞*  *${json.name}* *┇❯*`, conn.tokitoki[id][0])
+            delete conn.tokitoki[id]
+        }, timeout)
+    ]
 }
-export const exp = 0
+handler.help = ['guesseye']
+handler.tags = ['game']
+handler.command = /^علم$/i
+
+export default handler
