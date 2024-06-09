@@ -27,9 +27,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   							  	    highlight_label: 'ON',
   						  		    rows: [
   						  		    	{
-  						  		    		header: 'كل خرا',
-  										      title: 'خود ',
-  									    	  description: 'احلى خرا ',
+  						  		    		header: 'العاب',
+  										      title: '╭━━━[ *قسم العاب* ',
+  									    	  description: 'احزر ','خمن'
   								    		  id: 'test'
   						  		    	}
   						  		    ]
